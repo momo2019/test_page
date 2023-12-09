@@ -1,0 +1,31 @@
+import { ChatRoomOption, EntityOption, EntityStance } from './config';
+export declare class ChatRoom {
+    private scene;
+    private camera;
+    private renderer;
+    private labelRenderer;
+    private observer;
+    private update;
+    private landform;
+    private entities;
+    private entitiesStance;
+    private nowLevel;
+    private controls;
+    private inputEvent;
+    private pointer;
+    private raycaster;
+    constructor(wrap: HTMLElement, option: ChatRoomOption);
+    private _initEvent;
+    private initStance;
+    setEntityStance(stance: EntityStance[]): void;
+    private handleRender;
+    private onWindowResize;
+    private generateLevelStance;
+    private getRandomIndex;
+    private createModelEntity;
+    initEntity(entity: EntityOption[]): void;
+    appendEntity(entity: EntityOption[]): void;
+    removeEntity(uuid: string): void;
+    resetCamera(): void;
+    dispose(): void;
+}

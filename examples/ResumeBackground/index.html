@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    .label {
+      color: rgba(255, 255, 255, 1);
+      font-size: 24px;
+      background-color: transparent;
+    }
+    .wrap_video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .tt {
+      position: absolute;
+      top: 39px;
+      left: 0;
+      width: 100%;
+      object-fit: contain;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div" style="width: 100vw; height: 75vh; position: relative;">
+    <video id="video" class="wrap_video" muted autoplay></video>
+    <img class="tt" src="./t4.png" />
+  </div>
+   <script src="../../dist/index.js"></script>
+<!-- 
+  <script type="importmap">
+    {
+      "imports": {
+        "Test": "../../dist/index.js"
+      }
+    }
+  </script> -->
+
+  <!-- <script type="module"> -->
+    <script >
+    // import { ResumeBackground } from 'Test'
+
+    const divDom = document.getElementById('div')
+    const videoDom = document.getElementById('video')
+    const test = new threeTest.ResumeBackground(divDom, videoDom)
+    const PI = 3.1415
+
+
+    const labels =[
+        {
+          text: {
+            text: ['超级乐天派'],
+            className: 'label'
+          },
+          ring: {
+            opacity: 1,
+            tube: 0.02,
+            position: [0.3, 0.8, 0],
+            rotation: [PI * 3 / 5, 0, 0],
+            scale: 1.6,
+            alpha: 'tt.png',
+          },
+          config: {
+            ringShowSpeed: 1
+          }
+        },
+        {
+          text: {
+            className: 'label',
+            text: ['白羊座', '我爱摸鱼']
+          },
+          ring: {
+            opacity: 1,
+            tube: 0.02,
+            position: [-0.3, 1.8, 0],
+            rotation: [PI * 2.5 / 4, PI / 5, 0],
+            alpha: 'tt.png',
+            scale: 2.5
+          },
+          config: {
+            ringShowSpeed: 1
+          }
+        },
+      ]
+
+    const model = {
+      model: {
+        url: 'maosun.glb'
+      },
+      labels,
+    }
+    test.setLights([{ color: '#ffffff', intensity: 5, position: [-10, 5, 10] }, { color: '#ffffff', intensity: 1, position: [10, -3, -5] }])
+    test.setBackground('bg.mp4')
+
+
+    window.tt = () => {
+      console.log(window.pa);
+      test.setLines([
+        {
+          text: {
+            text: ['超级乐天派'],
+            className: 'label'
+          },
+          sphere: {
+            scale: 0.2,
+            offset: PI / 45,
+          },
+          ring: {
+            opacity: 0.5,
+            tube: 0.02,
+            position: [0, 0, 0],
+            rotation: [PI * 2.5 / 4, PI / 6, 0],
+            scale: 2.1,
+            alpha: 'tt.jpeg',
+          },
+          config: {
+            ringShowSpeed: 1,
+            offset: PI / 3
+          }
+        },
+        {
+          text: {
+            className: 'label',
+            text: ['白羊座', '我爱摸鱼']
+          },
+          sphere: {
+            offset: PI / 45,
+            scale: 0.2
+          },
+          ring: {
+            opacity: 0.5,
+            tube: 0.02,
+            position: [-0.2, 0.1, 0],
+            rotation: [PI * 2.5 / 4, -PI / 7, 0],
+            scale: 2.4,
+            alpha: 'tt.jpeg',
+          },
+          config: {
+            ringShowSpeed: 1
+          }
+        },
+      ])
+      // test.setModel(model).then((res) => {
+      //   res.play();
+      // })
+    }
+
+    window.tt();
+
+    window.ttt = () => {
+      test.changeFace('test.jpg');
+    }
+
+
+  </script>
+</body>
+
+</html>
